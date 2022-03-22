@@ -1,0 +1,12 @@
+{
+  "sections": {
+    "products_grid": {
+      "type": "products-grid",
+      "settings": {
+        "products_to_show": 10,
+        "collection": "all"
+      }
+    }
+  },
+  "order": ["products_grid"]
+}
