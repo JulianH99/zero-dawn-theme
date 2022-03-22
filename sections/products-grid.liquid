@@ -1,34 +1,27 @@
-
-{%- liquid
-  assign display_products_number = section.settings.collection.all_products_count
-
-  if section.settings.collection.all_products_count > section.settings.products_to_show
-    assign display_products_number = section.settings.products_to_show
-    assign more_products = true
-  endif
--%}
-
+<h1> puta madre </h1>
 
 {% schema %}
 {
   "name": "Products grid",
   "tag": "section",
   "class": "section",
-  "settings": [
-    {
-      "type": "collection",
-      "id": "collection",
-      "label": "Selected collection"
-    },
-    {
-      "type": "range",
-      "id": "products_to_show",
-      "min": 2,
-      "max": 20,
-      "step": 1,
-      "default": 10,
-      "label": "Products to show on grid"
-    }
-  ]
+  
 }
 {% endschema %}
+
+{% comment %} "settings": [
+  {
+    "type": "collection",
+    "id": "collection",
+    "label": "Selected collection"
+  },
+  {
+    "type": "range",
+    "id": "products_to_show",
+    "min": 2,
+    "max": 20,
+    "step": 1,
+    "default": 10,
+    "label": "Products to show on grid"
+  }
+] {% endcomment %}
