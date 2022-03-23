@@ -1,0 +1,27 @@
+<li data-prod-id="{{ item.id }}" class="mini-cart__item">
+  <div class="mini-cart__item-picture">
+    <img src="{{ item.image | image_url }}"
+      alt="{{ item.title }}"
+      width="{{ item.featured_image.width }}"
+      height="{{ item.featured_image.height }}"
+      loading="lazy">
+  </div>
+  <div class="mini-cart__item-body">
+    <p class="mini-cart__item-name">
+      <a href="{{ product.url }}">{{ item.title }}</a>
+    </p>  
+    <p class="mini-cart__item-price">{{ item.price | money_with_currency }}</p>
+  </div>
+
+  <div class="mini-cart__item-actions">
+    <div class="mini-cart__item-input">
+      <button onclick="decrement({{ item.id }}, {{ item.quantity }})">-</button>
+      <input type="number" readonly value="{{ item.quantity }}">
+      <button onclick="increment({{ item.id }}, {{ item.quantity }})">+</button>
+    </div>
+
+    <button class="mini-cart__item-remove" onclick="removeProduct({{ item.id }})">
+      {% render 'icon-remove' %}
+    </button>
+  </div>
+</li>

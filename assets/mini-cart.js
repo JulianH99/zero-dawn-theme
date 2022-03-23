@@ -1,13 +1,14 @@
-function addToCart(variantId) {
-  const form = document.querySelector(`#add-to-cart-${variantId}`)
-  const formData = new FormData(form);
+function addToCart(productId) {
+
+  const variantId = document.querySelector(`#add-to-cart-${productId} input[name="id"]`).value;
   const jsonCart = {
     items: [
-
+      {
+        id: variantId,
+        quantity: 1
+      }
     ]
   }
-  formData.forEach((value, key) => jsonCart.items.push({ [key]: value }));
-  jsonCart.items = jsonCart.items.map(item => ({ ...item, quanity: 1 }))
 
   fetch(`${Shopify.routes.root}${'cart/add.js'}`, {
     method: 'post',
@@ -22,7 +23,6 @@ function addToCart(variantId) {
   })
 }
 
-
 async function openAndUpdateMiniCart() {
   openMiniCart();
   openLoader();
@@ -30,27 +30,21 @@ async function openAndUpdateMiniCart() {
   closeLoader();
 }
 
-
-
-
-async function updateMinicart() {
-  // update function
-  
+async function updateMinicart() {  
   const response = await fetch(`${Shopify.routes.root}?sections=mini-cart`);
   const json_response = await response.json();
+  
   const htmlContent = json_response['mini-cart'];
   const parsedContent = new DOMParser().parseFromString(htmlContent, 'text/html');
 
-  const items = parsedContent.querySelector('.mini-cart__items').innerHTML;
-  const footer = parsedContent.querySelector('.mini-cart__footer').innerHTML;
-  const header = parsedContent.querySelector('.mini-cart__header').innerHTML;
-
-
+  const blocksToRender = ['items', 'footer', 'header']
   const miniCart = document.querySelector('.mini-cart');
 
-  miniCart.querySelector('.mini-cart__items').innerHTML = items;
-  miniCart.querySelector('.mini-cart__footer').innerHTML = footer;
-  miniCart.querySelector('.mini-cart__header').innerHTML = header;  
+  blocksToRender.forEach(block => {
+    const selector = `.mini-cart__${block}`
+    const content = parsedContent.querySelector(selector).innerHTML;
+    miniCart.querySelector(selector).innerHTML = content;
+  })
 }
 
 function openMiniCart() {
@@ -90,7 +84,7 @@ function emptyCart() {
   fetch(`${Shopify.routes.root}cart/clear.js`, {
     method: 'post'
   })
-    .then(res => updateMinicart())
+    .then(() => updateMinicart())
     .then(() => closeLoader())
 }
 
@@ -106,7 +100,7 @@ function performUpdate(itemId, quantity) {
         [itemId]: quantity,
       }
     })
-  }).then(res => updateMinicart())
+  }).then(() => updateMinicart())
     .then(() => closeLoader())
 }
 
