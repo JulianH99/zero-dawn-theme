@@ -1,0 +1,223 @@
+.mini-cart {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  height: 100vh;
+  max-height: 100vh;
+  width: 35%;
+  z-index: 1000;
+
+  background-color: #fff;
+  box-shadow: 1px 0 20px 0 rgba(0,0,0,0.23);
+  
+  display: flex;
+  flex-direction: column;
+  
+  transition: right .5s 0s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+}
+
+.mini-cart--open {
+  right: 0;
+}
+
+.mini-cart__header {
+  display: flex;
+  align-items: center;
+  padding: 7px 14px;
+  border-bottom: 0.1rem solid rgba(var(--color-foreground),.08);
+}
+
+.mini-cart__header #empty-cart {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  padding-top: 6px;
+  padding-bottom: 6px;
+
+}
+
+.mini-cart__header #empty-cart svg {
+  margin-left: 7px;
+}
+
+.mini-cart__header #close-mini-cart {
+  margin-left: 7px;
+}
+
+
+
+.mini-cart__header p {
+  font-size: 17px;
+  font-weight: 700;
+}
+
+.mini-cart__header button {
+  background-color: #ccc;
+  padding: 5px;
+  border: none;
+  cursor: pointer;
+  transition: all .2s;
+}
+
+.mini-cart__header button:hover {
+  background-color: #a0a0a0;
+}
+
+.mini-cart__header button svg {
+  min-width: 15px;
+  max-width: 15px;
+}
+
+.mini-cart__items {
+  max-height: calc(100% - 160px);
+  overflow-y: auto;
+  list-style: none;
+  padding-left: 14px;
+  padding-right: 14px;
+}
+
+.mini-cart__item {
+  display: flex;
+  align-items: flex-start;
+}
+
+.mini-cart__item-picture {
+  max-width: 15%;
+}
+
+.mini-cart__item-picture img {
+  max-width: 100%;
+}
+
+.mini-cart__item-body {
+  margin-left: 7px;
+}
+
+.mini-cart__item-body .mini-cart__item-name {
+  font-size: 18px;
+  margin-bottom: 0;
+  margin-top: 0;
+  line-height: 1;
+}
+
+.mini-cart__item-body .mini-cart__item-name a {
+  color: #000;
+  text-decoration: none;
+}
+
+.mini-cart__item-body .mini-cart__item-price {
+  margin-top: 0;
+}
+
+.mini-cart__item-actions {
+  margin-left: auto;
+}
+
+.mini-cart__item-actions .mini-cart__item-input {
+  display: flex;
+}
+
+.mini-cart__item-actions .mini-cart__item-input button {
+  background-color: #000;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  width: 30px;
+  height: 31px;
+}
+
+.mini-cart__item-actions .mini-cart__item-input input {
+  -webkit-appearance: none;
+  border-left: none;
+  border-right: none;
+  border-top: 1px solid rgb(var(--color-foreground));
+  border-bottom: 1px solid rgb(var(--color-foreground));
+  border-radius: 0;
+  padding: 7px 4px;
+  -moz-appearance: textfield;
+}
+
+.mini-cart__item-actions .mini-cart__item-input input::-webkit-outer-spin-button,
+.mini-cart__item-actions .mini-cart__item-input input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.mini-cart__item-actions .mini-cart__item-input input:active,
+.mini-cart__item-actions .mini-cart__item-input input:focus-visible {
+  outline: none;
+  box-shadow: none;
+}
+
+.mini-cart__item-actions .mini-cart__item-remove {
+  display: block;
+  width: 100%;
+  padding: 7px 14px;
+  margin-top: 7px;
+
+  background: #000;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+}
+
+.mini-cart__item-actions .mini-cart__item-remove svg {
+  max-width: 20px;
+  color: #fff;
+}
+
+.mini-cart__footer {
+  margin-top: auto;
+  padding: 7px 14px;
+  border-top: 0.1rem solid rgba(var(--color-foreground),.08);
+}
+
+.mini-cart__footer .mini-cart__summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.mini-cart__footer .mini-cart__checkout {
+  width: 100%;
+  display: block;
+
+  background-color: #000;
+  color: #fff;
+  font-size: 17px;
+  text-align: center;
+  text-decoration: none;
+  border: none;
+  padding: 14px 0;
+  cursor: pointer;
+}
+
+.mini-cart__footer .mini-cart__summary .mini-cart__price {
+  font-size: 22px;
+  font-weight: bold;
+
+}
+
+#open-mini-cart {
+  position: fixed;
+  z-index: 100;
+  right: 20px;
+  bottom: 100px;
+
+  display: flex;
+  width: 40px;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+  border: none;
+
+  border-radius: 50%;
+  box-shadow: -1px 0 5px 0 rgba(0,0,0,0.5);
+  background-color: #fff;
+  cursor: pointer;
+  transition: all .2s;
+}
+
+#open-mini-cart:hover {
+  transform: scale3d(1.05, 1.05, 1.05);
+}

@@ -42,14 +42,16 @@
                   {% endunless %}> {{ variant.title }}</button>    
               {% endif %}
             {% endfor %}
-            
           </div>
         {% endif %}
         
       </div>
-      <form action="/cart/add" method="post">
+      <form action="/cart/add" method="post" id="add-to-cart-{{ card_product.id }}">
         <input type="hidden" name="id" value="{{ card_product.variants.first.id }}">
-        <input type="submit" value="Agregar al carrito" name="add" class="product__add-to-cart">
+        <button class="product__add-to-cart" type="button" onclick="event.preventDefault();addToCart({{ card_product.id }}); return false;">
+          agregar al carrito
+          {% render 'icon-cart' %}
+        </button>
       </form> 
         
       

@@ -83,7 +83,9 @@
 }
 
 .product .product__add-to-cart {
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 100%;
   border: none;
   margin-top: 14px;
@@ -92,5 +94,9 @@
   font-weight: 300;
   text-transform: uppercase;
   letter-spacing: 1pX;
+}
+
+.product .product__add-to-cart svg {
+  max-width: 28px;
 }
 
