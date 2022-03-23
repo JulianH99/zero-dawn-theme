@@ -15,13 +15,11 @@
       {% render 'icon-close' %}
     </button>
   </div>
-
-
   <ul class="mini-cart__items">
     {% for item in cart.items %}
       <li data-prod-id="{{ item.id }}" class="mini-cart__item">
         <div class="mini-cart__item-picture">
-          <img src="{{ item.image | image_url }}" 
+          <img src="{{ item.image | image_url }}"
             alt="{{ item.title }}"
             width="{{ item.featured_image.width }}"
             height="{{ item.featured_image.height }}"
@@ -37,7 +35,7 @@
         <div class="mini-cart__item-actions">
           <div class="mini-cart__item-input">
             <button onclick="decrement({{ item.id }}, {{ item.quantity }})">-</button>
-            <input type="number" value="{{ item.quantity }}">
+            <input type="number" readonly value="{{ item.quantity }}">
             <button onclick="increment({{ item.id }}, {{ item.quantity }})">+</button>
           </div>
 
