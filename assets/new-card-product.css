@@ -1,6 +1,6 @@
 .product__image-wrapper {
   max-width: 231px;
-  max-height: 231px;
+  max-height: 320px;
   overflow: hidden;
 
   display: flex;
@@ -31,9 +31,40 @@
 
 .product .product__content .product__price {
   margin-top: 0;
+  margin-bottom: 4px;
   color: #888
 }
 
 .product:hover .product__image-wrapper img {
-  transform: scale3d(1.2, 1.2, 1.2);
+  transform: scale3d(1.1, 1.1, 1.1);
 }
+
+.product .product__variants {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px
+}
+
+.product .product__variants .product__variant {
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 300;
+  background: #333;
+  padding: 2px 8px;
+  color: #fff;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  transition: all .2s;
+}
+
+.product .product__variants .product__variant:hover {
+  background: #000;
+}
+
+.product .product__variants .product__variant:disabled {
+  background: #555;
+  color: #ccc;
+  cursor: not-allowed;
+}
+
