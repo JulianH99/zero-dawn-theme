@@ -20,10 +20,15 @@ function selectVariant(e) {
 
   name.innerHTML = variant.name;
 
+  const variantPriceString = variant.price.toString();
+
   price.innerHTML = Intl.NumberFormat(Shopify.locale, {
     style: 'currency',
     currency: Shopify.currency.active,
-  }).format(variant.price)
+    currencyDisplay: 'narrowSymbol'
+  }).format(Number(variantPriceString.substring(0, variantPriceString.length - 2)))
+
+  price.innerHTML += ` ${Shopify.currency.active}`
 
   // set id in input to add to card the selected variant
   prodContainer.querySelector('form input[name="id"]')
