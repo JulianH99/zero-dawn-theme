@@ -24,6 +24,10 @@ function selectVariant(e) {
     style: 'currency',
     currency: Shopify.currency.active,
   }).format(variant.price)
+
+  // set id in input to add to card the selected variant
+  prodContainer.querySelector('form input[name="id"]')
+    .setAttribute('value', variant.id);
 }
 
 

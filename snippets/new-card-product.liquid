@@ -47,11 +47,12 @@
         {% endif %}
         
       </div>
-      <div class="product__add-to-cart">
-        <button class="product__add-to-cart__button">
-          Agregar al carrito
-        </button>
-      </div>
+      <form action="/cart/add" method="post">
+        <input type="hidden" name="id" value="{{ card_product.variants.first.id }}">
+        <input type="submit" value="Agregar al carrito" name="add" class="product__add-to-cart">
+      </form> 
+        
+      
     </a>
   </article>
 
