@@ -1,3 +1,5 @@
+const fetchCartEvent = new Event('fetchCart')
+
 function addToCart(productId) {
 
   const variantId = document.querySelector(`#add-to-cart-${productId} input[name="id"]`).value;
@@ -18,6 +20,7 @@ function addToCart(productId) {
     }
   }).then(response => {
     if (response.ok) {
+      window.dispatchEvent(fetchCartEvent);
       openAndUpdateMiniCart();
     }
   })
@@ -25,9 +28,9 @@ function addToCart(productId) {
 
 async function openAndUpdateMiniCart() {
   openMiniCart();
-  openLoader();
-  await updateMinicart();
-  closeLoader();
+  // openLoader();
+  // await updateMinicart();
+  // closeLoader();
 }
 
 async function updateMinicart() {  

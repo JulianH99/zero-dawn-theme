@@ -3,46 +3,10 @@
 
 
 
-<aside class="mini-cart">
-  <div class="mini-cart__header">
-    <p>Estos son tus productos</p>
-    <button id="empty-cart" onclick="emptyCart()" {% if cart.items.size == 0 %}
-      disabled="true"
-    {% endif %}>
-      Empty cart {% render 'icon-remove' %}
-    </button>
-    <button type="button" id="close-mini-cart" onclick="closeMiniCart()">
-      {% render 'icon-close' %}
-    </button>
-  </div>
-  <ul class="mini-cart__items">
-    {% for item in cart.items %}
-      {% render 'mini-cart-item' item: item %}
-    {% endfor %}
-  </ul>
 
-  <div class="mini-cart__footer">
-    <div class="mini-cart__summary">
-      <p>Total to pay:</p>
-      <p class="mini-cart__price">{{ cart.total_price | money_with_currency }}</p>  
-    </div>
 
-    {% if cart.items.size > 0 %}
-      <a class="mini-cart__checkout" href="{{ routes.cart_url  }}">
-        Go to cart
-      </a>  
-    {% endif %}
-    
-  </div>
 
-  <div class="mini-cart__loader">
-    <div class="lds-ring">
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
-  </div>
+<aside class="mini-cart" id="react-root">
 </aside>
 
 
