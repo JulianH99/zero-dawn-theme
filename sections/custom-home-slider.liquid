@@ -1,0 +1,64 @@
+{{ 'custom-slider.css' | asset_url | stylesheet_tag }}
+
+<script src="{{ 'custom-slider.js' | asset_url }}" defer></script>
+
+
+<div class="custom-slider__wrapper">
+  <div class="custom-slider__inner" style="--block-width: {{ section.blocks | size | times: 100 }}%; --block-number: {{ section.blocks | size }}">
+    {% for block in section.blocks %}
+      <div class="custom-slider__slide">
+        <div class="custom-slider__slide__image">
+          <img src="{{ block.settings.slide_image | image_url: width: 1280, height: 400 }}" alt="{{ block.settings.slide_image.alt }}" loading="lazy">
+          <div class="custom-slide__slide__image__overlay"></div>
+        </div>
+        <p class="custom-slider__slide__text">
+          {{ block.settings.extra_text }}
+        </p>
+      </div>
+    {% endfor %}
+  </div>
+  <div class="custom-slider__global-text">
+    Somos una tienda de alto impacto con más de <b id="orders-quantity"></b> entregadas y más de <b id="users-quantity"></b> clientes a nivel mundial
+  </div>
+</div>
+
+<script type="text/javascript">
+  document.addEventListener("mousemove", parallax);
+  const position = 5;
+  function parallax(event) {
+    console.log('taking parallax');
+    this.querySelectorAll(".custom-slider__global-tex").forEach((shift) => {
+      const x = (window.innerWidth - event.pageX * position) / 90;
+      const y = (window.innerHeight - event.pageY * position) / 90;
+
+      shift.style.transform = `translateX(${x}px) translateY(${y}px)`;
+    });
+  }
+</script>
+
+
+{% schema %}
+  {
+    "name": "Home Slider",
+    "blocks": [
+      {
+        "type": "slide",
+        "name": "Slide",
+        "settings":[
+          {
+            "id": "slide_image",
+            "type": "image_picker",
+            "label": "Slide image"
+          },
+          {
+            "id": "extra_text",
+            "type": "text",
+            "label": "Extra text"
+          }
+        ]
+      }
+    ]
+  }
+{% endschema %}
+
+{% comment %} <script src="{{ 'custom-slider.js' | asset_url }}" defer></script> {% endcomment %}
