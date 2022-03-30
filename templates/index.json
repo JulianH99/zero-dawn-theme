@@ -3,14 +3,34 @@
     "custom_slider": {
       "type": "custom-home-slider",
       "blocks": {
-        "slide": {
+        "a646fa44-6432-482d-833a-ef651f24e624": {
           "type": "slide",
-          "name": "Slide",
           "settings": {
-            "slide_image": "",
-            "extra_text": ""
+            "slide_image": "shopify:\/\/shop_images\/people-looking-at-light-beams-from-the-walls.jpg",
+            "extra_text": "This is very motivational sentence for your day"
+          }
+        },
+        "438763f5-21e5-4e0b-8567-ae3f8bcf1f05": {
+          "type": "slide",
+          "settings": {
+            "slide_image": "shopify:\/\/shop_images\/geometric-glass-city-architecture.jpg",
+            "extra_text": "Cause we are a store that does not sell products, we sell... motivation"
+          }
+        },
+        "c40e14da-5e7c-4e72-b30f-d69b743a41fd": {
+          "type": "slide",
+          "settings": {
+            "slide_image": "shopify:\/\/shop_images\/hand-holds-up-a-two-scoop-ice-cream-cone.jpg",
+            "extra_text": "So that you can live your motivational day with our dumb motivational quotes that sell"
           }
         }
+      },
+      "block_order": [
+        "a646fa44-6432-482d-833a-ef651f24e624",
+        "438763f5-21e5-4e0b-8567-ae3f8bcf1f05",
+        "c40e14da-5e7c-4e72-b30f-d69b743a41fd"
+      ],
+      "settings": {
       }
     }
   },
