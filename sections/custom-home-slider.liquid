@@ -8,31 +8,48 @@
     {% for block in section.blocks %}
       <div class="custom-slider__slide">
         <div class="custom-slider__slide__image">
-          <img src="{{ block.settings.slide_image | image_url: width: 1280, height: 400 }}" alt="{{ block.settings.slide_image.alt }}" loading="lazy">
+          <img src="{{ block.settings.slide_image | image_url: width: 1280, height: 450 }}" alt="{{ block.settings.slide_image.alt }}" loading="lazy">
           <div class="custom-slide__slide__image__overlay"></div>
         </div>
-        <p class="custom-slider__slide__text">
-          {{ block.settings.extra_text }}
-        </p>
+        <div class="custom-slider__slide__text">
+          <p class="custom-slider__slide__text__inner">
+            {{ block.settings.extra_text }}
+          </p>
+        </div>
       </div>
     {% endfor %}
   </div>
   <div class="custom-slider__global-text">
-    Somos una tienda de alto impacto con más de <b id="orders-quantity"></b> entregadas y más de <b id="users-quantity"></b> clientes a nivel mundial
+    <div class="custom-slider__global-text__inner">
+      Somos una tienda de alto impacto con más de <b id="orders-quantity"></b> entregadas y más de <b id="users-quantity"></b> clientes a nivel mundial
+    </div>
   </div>
+
+  <button class="custom-slider__arrow custom-slider__arrow--left">
+    {% render 'icon-arrow' %}
+  </button>
+
+  <button class="custom-slider__arrow custom-slider__arrow--right">
+    {% render 'icon-arrow' %}
+  </button>
+  
 </div>
 
 <script type="text/javascript">
   document.addEventListener("mousemove", parallax);
-  const position = 5;
+  const position = 2;
   function parallax(event) {
-    console.log('taking parallax');
-    this.querySelectorAll(".custom-slider__global-tex").forEach((shift) => {
+    const elements = [
+      document.querySelector(".custom-slider__global-text__inner"),
+      ...document.querySelectorAll(".custom-slider__slide__text__inner")
+    ]   
+    elements.forEach(shift => {
       const x = (window.innerWidth - event.pageX * position) / 90;
       const y = (window.innerHeight - event.pageY * position) / 90;
 
       shift.style.transform = `translateX(${x}px) translateY(${y}px)`;
-    });
+    })
+    
   }
 </script>
 
