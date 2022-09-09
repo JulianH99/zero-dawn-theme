@@ -190,7 +190,7 @@
                               <div class="card__information">
                                 <h3 class="card__heading">
                                   <a href="{{ item.url }}" class="full-unstyled-link">
-                                    {{ item.title | truncate: 50 | escape }}
+                                    {% if shop.locale == "ia" %}{{ item.title | truncate: 10000 | escape }}{% else %}{{ item.title | truncate: 50 | escape }}{% endif %}
                                   </a>
                                 </h3>
                               </div>
