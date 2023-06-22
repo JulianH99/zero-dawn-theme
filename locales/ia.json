@@ -1222,20 +1222,10 @@
     },
     "filters": {
       "availability": {
-        "label": "__biSgid:\/\/shopify\/OnlineStoreTheme\/122386022473_key_shopify.filters.availability.label__biiAvailability__biE",
         "value": {
           "in_stock": "__biSgid:\/\/shopify\/OnlineStoreTheme\/122386022473_key_shopify.filters.availability.value.in_stock__biiIn stock__biE",
           "out_of_stock": "__biSgid:\/\/shopify\/OnlineStoreTheme\/122386022473_key_shopify.filters.availability.value.out_of_stock__biiOut of stock__biE"
         }
-      },
-      "vendor": {
-        "label": "__biSgid:\/\/shopify\/OnlineStoreTheme\/122386022473_key_shopify.filters.vendor.label__biiBrand__biE"
-      },
-      "price": {
-        "label": "__biSgid:\/\/shopify\/OnlineStoreTheme\/122386022473_key_shopify.filters.price.label__biiPrice__biE"
-      },
-      "product_type": {
-        "label": "__biSgid:\/\/shopify\/OnlineStoreTheme\/122386022473_key_shopify.filters.product_type.label__biiProduct type__biE"
       },
       "boolean": {
         "true_label": "__biSgid:\/\/shopify\/OnlineStoreTheme\/122386022473_key_shopify.filters.boolean.true_label__biiYes__biE",
